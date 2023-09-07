@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Calculator.css">
+    <title>Simple calculator</title>
+</head>
+<body>
+   <div id="wrapper">
+   <h2>calculator</h2>
+<!-- operand1-->
+   <div class="inputDiv">
+    <input type="text" id="input1" placeholder="Enter number1">
+</div>
+<!-- operand2 -->
+<div class="inputDiv">
+    <input type="text" id="input2" placeholder="Enter number2">
+</div>
+<!-- select operand -->
+<div class="select">
+    <select id="operand">
+        <option value="Add">Add</option>
+        <option value="Sub">Sub</option>
+        <option value="Multiply">multiply</option>
+        <option value="Division">Division</option>
+    </select>
+</div>
+<!-- submit -->
+   <div>
+    <button type="submit" >calculate</button>
+    </div>  
+    </div>
+
+<!-- javascript code -->
+    <script>
+       let button=document.querySelector('button');
+       button.addEventListener('click',calculate);
+       //divtag
+       let divTag=document.createElement('div');
+       divTag.id='result';
+       let output=document.getElementById('wrapper').appendChild(divTag)
+
+    function calculate(){
+        let number1=Number(document.getElementById("input1").value);
+        console.log(number1);
+        let number2=Number(document.getElementById("input2").value);
+        console.log(number2);
+        //useroperand
+        let userOperand=operand.options[operand.selectedIndex].value;
+        //switchcase
+        
+        switch(userOperand){
+            case 'Add':
+            var result =number1+number2;
+                break;
+            case 'Sub':
+            var result = number1-number2;
+                break;
+            case 'Multiply':
+            var result=number1*number2;
+            console.log(result);
+                break;
+            case 'Division':
+            var result=number1/number2;
+                break;
+        }
+        output.innerHTML=`The Answer is ${result}`;
+    }
+    </script>
+</body>
+</html>
